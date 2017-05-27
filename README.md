@@ -4,7 +4,7 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php) [![Semver](http://img.shields.io/SemVer/2.0.0.png)](http://semver.org/spec/v2.0.0.html)
 
 
-**Python 3 script running under raspbian on a Raspberry Pi 3 for controlling DRV8825 StepperMotorDrivers**
+**Python script running under raspbian on a Raspberry Pi 3 for controlling DRV8825 StepperMotorDrivers**
 
 ![Flowchart](/docs/flowchart.png)
 
