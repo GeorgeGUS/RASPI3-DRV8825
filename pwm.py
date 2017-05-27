@@ -1,4 +1,10 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+# encoding: utf-8
+
+"""pwm.py: Script for controlling DRV8825 StepperMotorDrivers"""
+__author__ = "Maurice Seifert, Daniel Nikulin"
+__license__ = "MIT"
+__version__ = "0.0.0"
 
 # Import
 import RPi.GPIO as GPIO
