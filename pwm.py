@@ -84,7 +84,7 @@ while(1):
             continue
 
     # Pause
-    if (x == 'stop' or x == 'pause'):
+    elif (x == 'stop' or x == 'pause'):
         if b == 1:
             pi.hardware_PWM(18, 0, 0)
             stroke()
@@ -92,13 +92,13 @@ while(1):
             stroke()
             b = 0
             continue
-        if b == 0:
+        elif b == 0:
             stroke()
             print("Nothing to pause")
             stroke()
             continue
 
-    if x == '1/1':
+    elif x == '1/1':
         stroke()
         print("Full Step")
         GPIO.output(m0, 0)
@@ -107,7 +107,7 @@ while(1):
         stroke()
         continue
 
-    if x == '1/2':
+    elif x == '1/2':
         stroke()
         print("Half Step")
         GPIO.output(m0, 1)
@@ -116,7 +116,7 @@ while(1):
         stroke()
         continue
 
-    if x == '1/4':
+    elif x == '1/4':
         stroke()
         print("1/4 Step")
         GPIO.output(m0, 0)
@@ -125,7 +125,7 @@ while(1):
         stroke()
         continue
 
-    if x == '1/8':
+    elif x == '1/8':
         stroke()
         print("1/8 Step")
         GPIO.output(m0, 1)
@@ -134,7 +134,7 @@ while(1):
         stroke()
         continue
 
-    if x == '1/16':
+    elif x == '1/16':
         stroke()
         print("1/16 Step")
         GPIO.output(m0, 0)
@@ -143,7 +143,7 @@ while(1):
         stroke()
         continue
 
-    if x == '1/32':
+    elif x == '1/32':
         stroke()
         print("1/32 Step")
         GPIO.output(m0, 1)
@@ -153,7 +153,7 @@ while(1):
         continue
 
     # Help
-    if (x == '?' or x == 'help'):
+    elif (x == '?' or x == 'help'):
         stroke()
         print("|       |      HELP      |      |")
         stroke()
@@ -170,7 +170,7 @@ while(1):
         continue
 
     #Direction
-    if x == 'dir':
+    elif x == 'dir':
         if f == 0:
             GPIO.output(dirpin, 1)
             f = 1
@@ -183,7 +183,7 @@ while(1):
         continue
 
     # Exit
-    if x == 'exit':
+    elif x == 'exit':
         stroke()
         print("Closing program")
         stroke()
