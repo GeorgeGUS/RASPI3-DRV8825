@@ -172,9 +172,11 @@ while(1):
     #Direction
     if x == 'dir':
         if f == 0:
-            GPIO.output(16, 1)
-        if f == 1:
-            GPIO.output(16, 0)
+            GPIO.output(dirpin, 1)
+            f = 1
+        elif f == 1:
+            GPIO.output(dirpin, 0)
+            f = 0
         stroke()
         print("Direction changed")
         stroke()
@@ -186,6 +188,7 @@ while(1):
         print("Closing program")
         stroke()
         stroke()
+        GPIO.cleanup()
         if b == 1:
             pi.hardware_PWM(18, 0, 0)
         t.sleep(1)
