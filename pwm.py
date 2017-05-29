@@ -39,7 +39,7 @@ def startprog():
     print("Program started")
     stroke()
     b = 1
-    
+
 def startfail():
     stroke()
     print("Enter Freq and DC first")
@@ -52,7 +52,7 @@ def pauseprog():
     print("Program paused")
     stroke()
     b = 0
-    
+
 def pausefail():
     stroke()
     print("Nothing to pause")
@@ -85,8 +85,8 @@ def helptext():
     print("'stop' to stop the PWM")
     print("'exit' closes the program")
     stroke()
-    
-    # Direction     
+
+    # Direction
 def changedirect():
     if f == 0:
         GPIO.output(dirpin, 1)
@@ -165,7 +165,7 @@ while(1):
     # Exit
     elif x == 'exit':
         exitsteps()
-        
+
     # Steps
     elif x == '1/1':
         stroke()
