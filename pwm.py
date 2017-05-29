@@ -59,7 +59,7 @@ def pausefail():
     stroke()
 
     # Exit
- def exitsteps():
+def exitsteps():
     stroke()
     print("Closing program")
     stroke()
