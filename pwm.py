@@ -4,7 +4,7 @@
 """pwm.py: Script for controlling DRV8825 StepperMotorDrivers"""
 __author__ = "Maurice Seifert"
 __license__ = "MIT"
-__version__ = "1.0.1 - Internal Build"
+__version__ = "1.0.0"
 
 # Import
 import RPi.GPIO as GPIO
