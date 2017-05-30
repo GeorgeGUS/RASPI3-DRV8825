@@ -255,6 +255,6 @@ while(1):
     print("Frequency : " + str(z))
     print("Duty cycle: " + str(d))
     if e == 1:
-        print("To adopt new settings enter 'start'")
+        print("Write 'start' to adopt to new values")
+        e = 1
     stroke()
-    e = 1
