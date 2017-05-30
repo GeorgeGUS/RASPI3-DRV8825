@@ -144,7 +144,6 @@ while(1):
     # Start
     if x == 'start':
         try:
-            e = 1
             b = 1
             t.sleep(0.1)
             startprog()
@@ -256,5 +255,6 @@ while(1):
     print("Frequency : " + str(z))
     print("Duty cycle: " + str(d))
     if e == 1:
-        print("")
+        print("To adopt new settings enter 'start'")
     stroke()
+    e = 1
