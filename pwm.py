@@ -32,14 +32,13 @@ f = 0
 # Configuration
 def stroke():
     print("---------------------------------")
-    
+
     # Start
 def startprog():
     pi.hardware_PWM(18, z, y)
     stroke()
     print("Program started")
     stroke()
-    
 
 def startfail():
     stroke()
@@ -98,7 +97,6 @@ def changedirect():
     stroke()
     print("Direction changed")
     stroke()
-
 
 pi = pigpio.pi()
 GPIO.setwarnings(False)
