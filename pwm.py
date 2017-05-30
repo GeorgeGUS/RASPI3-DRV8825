@@ -32,7 +32,7 @@ f = 0
 def stroke():
     print("---------------------------------")
     
-    # Start    
+    # Start
 def startprog():
     pi.hardware_PWM(18, z, y)
     stroke()
@@ -159,7 +159,7 @@ while(1):
         helptext()
         continue
 
-    #Direction
+    # Direction
     elif x == 'dir':
         changedirect()
         continue
