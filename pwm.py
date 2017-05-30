@@ -21,44 +21,48 @@ m2 = 15
 
 # Variables
 #a
-#c
 #d
 #t
 #y
-z = 0
+c = 50
 b = 0
 f = 0
+z = 0
 
 # Configuration
 def stroke():
+    """Prints a separator line"""
     print("---------------------------------")
-
-    # Start
+  
 def startprog():
+    """Starts the PWM"""
     pi.hardware_PWM(18, z, y)
     stroke()
     print("Program started")
     stroke()
 
 def startfail():
+    """Error message when start fails"""
     stroke()
     print("Enter Freq and DC first")
     stroke()
 
-    # Pause
 def pauseprog():
+    """Stops the PWM"""
     pi.hardware_PWM(18, 0, 0)
     stroke()
     print("Program paused")
     stroke()
 
 def pausefail():
+    """Error message when pause fails"""
     stroke()
     print("Nothing to pause")
     stroke()
 
     # Exit
 def exitsteps():
+    """Terminating the program"""
     stroke()
     print("Closing program")
     stroke()
@@ -70,6 +74,7 @@ def exitsteps():
     raise SystemExit
 
     # Help
+    """Displays help"""
 def helptext():
     stroke()
     print("|       |      HELP      |      |")
@@ -88,6 +93,7 @@ def helptext():
 
     # Direction
 def changedirect():
+    """Changes the level of the dir PIN"""
     if f == 0:
         GPIO.output(dirpin, 1)
         f = 1
@@ -224,7 +230,10 @@ while(1):
         continue
 
     try:
-        a, c = x.split()
+        try:
+            a, c = x.split()
+        except Exception:
+            a = x
         z = int(a)
         d = int(c)
         y = d*10000
