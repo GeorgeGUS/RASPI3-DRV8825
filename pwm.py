@@ -3,14 +3,15 @@
 
 """pwm.py: Script for controlling DRV8825 StepperMotorDrivers"""
 __author__ = "Maurice Seifert"
+__credits__ = "Daniel Nikulin"
 __license__ = "MIT"
 __version__ = "1.0.0"
 
 # Import
+import sys
+import time as t
 import RPi.GPIO as GPIO
 import pigpio
-import time as t
-import sys
 
 # PINS
 dirpin = 16
