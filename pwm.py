@@ -31,34 +31,38 @@ z = 0
 
 # Configuration
 def stroke():
+    """Shortened version of the output, makes the code clearer"""
     print("---------------------------------")
-
-    # Start
+  
 def startprog():
+    """Starts the PWM output"""
     pi.hardware_PWM(18, z, y)
     stroke()
     print("Program started")
     stroke()
 
 def startfail():
+    """Error message. If start failed"""
     stroke()
     print("Enter Freq and DC first")
     stroke()
 
-    # Pause
 def pauseprog():
+    """Stops the PWM output"""
     pi.hardware_PWM(18, 0, 0)
     stroke()
     print("Program paused")
     stroke()
 
 def pausefail():
+    """Error message. If nothing to pause"""
     stroke()
     print("Nothing to pause")
     stroke()
 
     # Exit
 def exitsteps():
+    """The steps that terminate the program"""
     stroke()
     print("Closing program")
     stroke()
@@ -70,6 +74,7 @@ def exitsteps():
     raise SystemExit
 
     # Help
+    """Displays help"""
 def helptext():
     stroke()
     print("|       |      HELP      |      |")
@@ -88,6 +93,7 @@ def helptext():
 
     # Direction
 def changedirect():
+    """Changes the direction of the motors"""
     if f == 0:
         GPIO.output(dirpin, 1)
         f = 1
