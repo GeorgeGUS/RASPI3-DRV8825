@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 """pwm.py: Script for controlling DRV8825 StepperMotorDrivers"""
-__author__ = "Maurice Seifert, Daniel Nikulin"
+__author__ = "Maurice Seifert"
 __license__ = "MIT"
 __version__ = "1.0.0"
 
@@ -28,9 +28,75 @@ z = 0
 b = 0
 f = 0
 
-# configuration
+# Configuration
 def stroke():
     print("---------------------------------")
+    
+    # Start
+def startprog():
+    pi.hardware_PWM(18, z, y)
+    stroke()
+    print("Program started")
+    stroke()
+    
+
+def startfail():
+    stroke()
+    print("Enter Freq and DC first")
+    stroke()
+
+    # Pause
+def pauseprog():
+    pi.hardware_PWM(18, 0, 0)
+    stroke()
+    print("Program paused")
+    stroke()
+
+def pausefail():
+    stroke()
+    print("Nothing to pause")
+    stroke()
+
+    # Exit
+def exitsteps():
+    stroke()
+    print("Closing program")
+    stroke()
+    stroke()
+    GPIO.cleanup()
+    if b == 1:
+        pi.hardware_PWM(18, 0, 0)
+    t.sleep(1)
+    raise SystemExit
+
+    # Help
+def helptext():
+    stroke()
+    print("|       |      HELP      |      |")
+    stroke()
+    print("https://github.com/dan-nkl/RASPI3-DRV8825")
+    print("For help see Github")
+    print(" ")
+    print("Commands:")
+    print("'<freq> <dc>' to set Frequency and Duty cycle")
+    print("'1/1'..'1/8'..'1/32' for changing step size")
+    print("'start' to start the PWM")
+    print("'stop' to stop the PWM")
+    print("'exit' closes the program")
+    stroke()
+
+    # Direction
+def changedirect():
+    if f == 0:
+        GPIO.output(dirpin, 1)
+        f = 1
+    elif f == 1:
+        GPIO.output(dirpin, 0)
+        f = 0
+    stroke()
+    print("Direction changed")
+    stroke()
+
 
 pi = pigpio.pi()
 GPIO.setwarnings(False)
@@ -71,33 +137,38 @@ while(1):
     # Start
     if x == 'start':
         try:
-            pi.hardware_PWM(18, z, y)
-            stroke()
-            print("Program started")
-            stroke()
             b = 1
+            t.sleep(0.1)
+            startprog()
             continue
         except Exception:
-            stroke()
-            print("Enter Freq and DC first")
-            stroke()
+            startfail()
             continue
 
     # Pause
     elif (x == 'stop' or x == 'pause'):
         if b == 1:
-            pi.hardware_PWM(18, 0, 0)
-            stroke()
-            print("Program paused")
-            stroke()
+            pauseprog()
             b = 0
-            continue
         elif b == 0:
-            stroke()
-            print("Nothing to pause")
-            stroke()
-            continue
+            pausefail()
+        continue
 
+    # Help
+    elif (x == '?' or x == 'help'):
+        helptext()
+        continue
+
+    # Direction
+    elif x == 'dir':
+        changedirect()
+        continue
+
+    # Exit
+    elif x == 'exit':
+        exitsteps()
+
+    # Steps
     elif x == '1/1':
         stroke()
         print("Full Step")
@@ -151,48 +222,6 @@ while(1):
         GPIO.output(m2, 1)
         stroke()
         continue
-
-    # Help
-    elif (x == '?' or x == 'help'):
-        stroke()
-        print("|       |      HELP      |      |")
-        stroke()
-        print("https://github.com/dan-nkl/RASPI3-DRV8825")
-        print("For help see Github")
-        print(" ")
-        print("Commands:")
-        print("'<freq> <dc>' to set Frequency and Duty cycle")
-        print("'1/1'..'1/8'..'1/32' for changing step size")
-        print("'start' to start the PWM")
-        print("'stop' to stop the PWM")
-        print("'exit' closes the program")
-        stroke()
-        continue
-
-    #Direction
-    elif x == 'dir':
-        if f == 0:
-            GPIO.output(dirpin, 1)
-            f = 1
-        elif f == 1:
-            GPIO.output(dirpin, 0)
-            f = 0
-        stroke()
-        print("Direction changed")
-        stroke()
-        continue
-
-    # Exit
-    elif x == 'exit':
-        stroke()
-        print("Closing program")
-        stroke()
-        stroke()
-        GPIO.cleanup()
-        if b == 1:
-            pi.hardware_PWM(18, 0, 0)
-        t.sleep(1)
-        raise SystemExit
 
     try:
         a, c = x.split()
