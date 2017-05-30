@@ -3,8 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
-
+## [1.0.1] - 2017-05-30
+### Changed
+- Improved some texts
+- Cleaned and improved the readability of the code
 
 ## [1.0.0] - 2017-05-27
 ### First Release

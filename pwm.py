@@ -5,7 +5,7 @@
 __author__ = "Maurice Seifert"
 __credits__ = "Daniel Nikulin"
 __license__ = "MIT"
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 # Import
 import sys
