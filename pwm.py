@@ -76,14 +76,15 @@ def helptext():
     print("|       |      HELP      |      |")
     stroke()
     print("https://github.com/dan-nkl/RASPI3-DRV8825")
-    print("For help see Github")
+    print("For more information see Github")
     print(" ")
-    print("Commands:")
+    print("Command reference:")
     print("'<freq> <dc>' to set Frequency and Duty cycle")
-    print("'1/1'..'1/8'..'1/32' for changing step size")
+    print("'1/1'..'1/8'..'1/32' to change step size")
     print("'start' to start the PWM")
     print("'stop' to stop the PWM")
     print("'exit' closes the program")
+    print("'?' shows this information")
     stroke()
 
     # Direction
@@ -232,6 +233,7 @@ while(1):
     except Exception:
         stroke()
         print("Check input")
+        print("For help '?'")
         stroke()
         continue
 
