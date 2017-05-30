@@ -21,13 +21,13 @@ m2 = 15
 
 # Variables
 #a
-#c
 #d
 #t
 #y
-z = 0
+c = 50
 b = 0
 f = 0
+z = 0
 
 # Configuration
 def stroke():
@@ -224,7 +224,10 @@ while(1):
         continue
 
     try:
-        a, c = x.split()
+        try:
+            a, c = x.split()
+        except Exception:
+            a = x
         z = int(a)
         d = int(c)
         y = d*10000
