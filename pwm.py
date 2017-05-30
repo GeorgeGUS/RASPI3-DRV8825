@@ -38,7 +38,7 @@ def startprog():
     stroke()
     print("Program started")
     stroke()
-    b = 1
+    
 
 def startfail():
     stroke()
@@ -51,7 +51,6 @@ def pauseprog():
     stroke()
     print("Program paused")
     stroke()
-    b = 0
 
 def pausefail():
     stroke()
@@ -138,6 +137,8 @@ while(1):
     # Start
     if x == 'start':
         try:
+            b = 1
+            t.sleep(0.1)
             startprog()
             continue
         except Exception:
@@ -148,6 +149,7 @@ while(1):
     elif (x == 'stop' or x == 'pause'):
         if b == 1:
             pauseprog()
+            b = 0
         elif b == 0:
             pausefail()
         continue
