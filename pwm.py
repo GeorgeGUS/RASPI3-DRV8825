@@ -24,8 +24,9 @@ m2 = 15
 #d
 #t
 #y
-c = 50
 b = 0
+c = 50
+e = 0
 f = 0
 z = 0
 
@@ -143,6 +144,7 @@ while(1):
     # Start
     if x == 'start':
         try:
+            e = 1
             b = 1
             t.sleep(0.1)
             startprog()
@@ -253,4 +255,6 @@ while(1):
     stroke()
     print("Frequency : " + str(z))
     print("Duty cycle: " + str(d))
+    if e == 1:
+        print("")
     stroke()
