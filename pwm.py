@@ -75,8 +75,8 @@ def exitsteps():
     raise SystemExit
 
     # Help
-    """Displays help"""
 def helptext():
+    """Displays help"""
     stroke()
     print("|       |      HELP      |      |")
     stroke()
@@ -90,19 +90,6 @@ def helptext():
     print("'stop' to stop the PWM")
     print("'exit' closes the program")
     print("'?' shows this information")
-    stroke()
-
-    # Direction
-def changedirect():
-    """Changes the level of the dir PIN"""
-    if f == 0:
-        GPIO.output(dirpin, 1)
-        f = 1
-    elif f == 1:
-        GPIO.output(dirpin, 0)
-        f = 0
-    stroke()
-    print("Direction changed")
     stroke()
 
 pi = pigpio.pi()
@@ -168,7 +155,15 @@ while(1):
 
     # Direction
     elif x == 'dir':
-        changedirect()
+        if f == 0:
+            GPIO.output(dirpin, 1)
+            f = 1
+        elif f == 1:
+            GPIO.output(dirpin, 0)
+            f = 0
+        stroke()
+        print("Direction changed")
+        stroke()
         continue
 
     # Exit
