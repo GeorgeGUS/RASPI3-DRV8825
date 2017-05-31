@@ -34,7 +34,7 @@ z = 0
 def stroke():
     """Prints a separator line"""
     print("---------------------------------")
-  
+ 
 def startprog():
     """Starts the PWM"""
     pi.hardware_PWM(18, z, y)
@@ -232,17 +232,17 @@ while(1):
             a = x
         z = int(a)
         d = int(c)
+        if d > 100:
+            stroke()
+            print("Duty cycle can not be over 100%")
+            print("Set back to: " + str(y/10000))
+            stroke()
+            continue
         y = d*10000
     except Exception:
         stroke()
         print("Check input")
         print("For help '?'")
-        stroke()
-        continue
-
-    if y > 1000000:
-        stroke()
-        print("Duty cycle can not be over 100%")
         stroke()
         continue
 
