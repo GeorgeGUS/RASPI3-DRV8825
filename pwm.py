@@ -105,7 +105,7 @@ pigpio.exceptions = False
 pi = pigpio.pi()
 
 stroke()
-print("https://github.com/dan-nkl/RASPI3-DRV8825")
+print("https://github.com/msifrt/RASPI3-DRV8825")
 print("For help '?' or see Github")
 t.sleep(1)
 stroke()
