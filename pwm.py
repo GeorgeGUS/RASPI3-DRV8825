@@ -3,7 +3,7 @@
 
 """pwm.py: Script for controlling DRV8825 StepperMotorDrivers"""
 __author__ = "Maurice Seifert"
-__credits__ = "Daniel Nikulin"
+__credits__ = "Daniel Nikulin, baribalazs"
 __license__ = "MIT"
 __version__ = "1.0.1"
 
